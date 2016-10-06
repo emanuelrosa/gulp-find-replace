@@ -20,7 +20,7 @@ module.exports = function(replace) {
 
     var
       str = file.contents.toString(),
-      regex;
+      defaultFlag = 'g';
 
     // =================
     // for each repalce value, run find and replace
@@ -28,24 +28,23 @@ module.exports = function(replace) {
     if(replace !== ''){
 
       for(var index = 0; index < replace.length; ++index){
-        if(typeof replace[index][0] !== 'undefined' && typeof replace[index][1] !== 'undefined'){
 
-          //
-          // example: A. regex: '/\n|\r/g';
-          // need to ...
-          // remove first and last slashe '/' (indicate start/end of a regular expression)
-          // remove expression flags 'g' (for example)
-          // and escape all the backslashes
-          // then: A. regex: '\\n|\\r';
+        if(typeof replace[index].regex !== 'undefined' && typeof replace[index].replace !== 'undefined'){
 
-          // replace parameter value need to be '\\n|\\r' and not '/\n|\r/g' (that's wrong). ¬¬'
-          // http://stackoverflow.com/questions/11143702/how-to-pass-a-regular-expression-as-a-function-parameter
-          //
+          if(typeof replace[index].flag !== 'undefined'){
 
-          regex = new RegExp(replace[index][0], 'g');
-          str = str.replace(regex, replace[index][1]);
+            if(Array.isArray(replace[index].flag)){
+              replace[index].flag = replace[index].flag.join("");
+            }
+
+          }else{
+            replace[index].flag = defaultFlag;
+          }
+
+          str = str.replace(new RegExp(replace[index].regex, replace[index].flag), replace[index].replace);
 
         }
+
       }
 
     }
