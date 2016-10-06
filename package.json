@@ -1,0 +1,41 @@
+{
+  "name": "gulp-cleanhtml",
+  "version": "1.0.2",
+  "description": "Removes unneeded whitespaces, line-breaks, comments, etc from HTML",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hemanth/gulp-cleanhtml.git"
+  },
+  "keywords": [
+    "log",
+    "console",
+    "gulpplugin"
+  ],
+  "author": {
+    "name": "Hemanth.HM"
+  },
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/hemanth/gulp-cleanhtml/issues"
+  },
+  "homepage": "https://github.com/hemanth/gulp-cleanhtml",
+  "dependencies": {
+    "htmlclean": "~2.7.7",
+    "gulp-util": "~3.0.1",
+    "event-stream": "~3.3.4"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  },
+  "gitHead": "5446f5b1a6782077679ef77ca2d14ee896ee203d",
+  "readme": "# gulp-cleanhtml [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/hemanth/gulp-cleanhtml.svg?branch=master)](https://travis-ci.org/hemanth/gulp-cleanhtml)\n\n> Cleans your HTML using [htmlclean](https://github.com/anseki/htmlclean)\n\n## Usage\n\nFirst, install `gulp-cleanhtml` as a development dependency:\n\n```shell\nnpm install --save-dev gulp-cleanhtml\n```\n\nThen, add it to your `gulpfile.js`:\n\n```javascript\nvar cleanhtml = require('gulp-cleanhtml');\n\ngulp.task('default', function(){\n  gulp.src('index.html')\n    .pipe(cleanhtml())\n    .pipe(gulp.dest('build/index.html'));\n});\n```\nThe above will remove unneeded whitespaces, line-breaks, comments, etc from the HTML. \n\n\n[npm-url]: https://npmjs.org/package/gulp-cleanhtml\n[npm-image]: https://badge.fury.io/js/gulp-repl.png\n\n",
+  "readmeFilename": "README.md",
+  "_id": "gulp-cleanhtml@1.0.2",
+  "_shasum": "318f71fd2604d01dcde8b440ed9cb5cc0c8e888e",
+  "_from": "emanuelrosa/gulp-cleanhtml",
+  "_resolved": "git://github.com/emanuelrosa/gulp-cleanhtml.git#5446f5b1a6782077679ef77ca2d14ee896ee203d"
+}
